@@ -49,25 +49,26 @@ _END;
   }
 
 echo <<<_END
-      <form method='post' action='signup.php?r=$randstr'>$error
-      <div data-role='fieldcontain'>
-        <label></label>
-        Please enter your details to sign up
-      </div>
-      <div data-role='fieldcontain'>
-        <label>Username</label>
-        <input type='text' maxlength='16' name='user' value='$user'
-          onBlur='checkUser(this)'>
-        <label></label><div id='used'>&nbsp;</div>
-      </div>
-      <div data-role='fieldcontain'>
-        <label>Password</label>
-        <input type='text' maxlength='16' name='pass' value='$pass'>
-      </div>
-      <div data-role='fieldcontain'>
-        <label></label>
-        <input data-transition='slide' type='submit' value='Sign Up'>
-      </div>
+      <form method='post' action='signup.php?r=$randstr'>
+        <div class="form-box">
+          <div data-role='fieldcontain'>
+            <span class='error'>$error</span>
+          </div>
+          <div data-role='fieldcontain'>
+            <label>Username</label>
+            <input type='text' maxlength='16' name='user' value='$user'
+              onBlur='checkUser(this)'>
+            <div id='used'>&nbsp;</div>
+          </div>
+          <div data-role='fieldcontain'>
+            <label>Password</label>
+            <input type='text' maxlength='16' name='pass' value='$pass'>
+          </div>
+          <div data-role='fieldcontain'>
+            <input data-transition='slide' type='submit' value='Sign Up'>
+          </div>
+        </div>
+      </form>
     </div>
   </body>
 </html>

@@ -41,6 +41,7 @@ img {
 
 .center {
   text-align:center;
+  color: black;
 }
 
 .subhead {
@@ -48,7 +49,7 @@ img {
 }
 
 .taken, .error {
-  color:red;
+  color: black;
 }
 
 .available {
@@ -65,7 +66,7 @@ img {
   font-weight:bold;
   font-style :italic;
   font-size  :97px;
-  color      :red;
+  color      :black !important;
   }
 
 #robin {
