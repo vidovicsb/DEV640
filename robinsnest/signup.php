@@ -21,6 +21,19 @@ echo <<<_END
         }
       )
     }
+
+    function togglePasswordVisibility(inputId, buttonId) {
+      const passwordInput = document.getElementById(inputId);
+      const toggleButton = document.getElementById(buttonId);
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleButton.src = 'pswrd_on.jpg';
+      } else {
+        passwordInput.type = 'password';
+        toggleButton.src = 'pswrd_off.jpg';
+      }
+    }
   </script>  
 _END;
 
@@ -62,7 +75,11 @@ echo <<<_END
           </div>
           <div data-role='fieldcontain'>
             <label>Password</label>
-            <input type='text' maxlength='16' name='pass' value='$pass'>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type='password' maxlength='16' name='pass' value='$pass' id="signup-password" style="flex: 1;">
+              <img src="pswrd_off.jpg" id="signup-toggle" onclick="togglePasswordVisibility('signup-password', 'signup-toggle')" 
+                style="cursor: pointer; width: 20px; height: 20px; object-fit: contain;">
+            </div>
           </div>
           <div data-role='fieldcontain'>
             <input data-transition='slide' type='submit' value='Sign Up'>

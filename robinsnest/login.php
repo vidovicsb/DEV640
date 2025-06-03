@@ -31,21 +31,39 @@
   }
 
 echo <<<_END
+      <script>
+        function togglePasswordVisibility(inputId, buttonId) {
+          const passwordInput = document.getElementById(inputId);
+          const toggleButton = document.getElementById(buttonId);
+          
+          if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleButton.src = 'pswrd_on.jpg';
+          } else {
+            passwordInput.type = 'password';
+            toggleButton.src = 'pswrd_off.jpg';
+          }
+        }
+      </script>
       <form method='post' action='login.php?r=$randstr'>
         <div class="form-box">
-          <div data-role='fieldcontain'>
-            <span class='error'>$error</span>
+        <div data-role='fieldcontain'>
+          <span class='error'>$error</span>
+        </div>
+        <div data-role='fieldcontain'>
+          <label>Username</label>
+          <input type='text' maxlength='16' name='user' value='$user'>
+        </div>
+        <div data-role='fieldcontain'>
+          <label>Password</label>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <input type='password' maxlength='16' name='pass' value='$pass' id="login-password" style="flex: 1;">
+            <img src="pswrd_off.jpg" id="login-toggle" onclick="togglePasswordVisibility('login-password', 'login-toggle')" 
+              style="cursor: pointer; width: 20px; height: 20px; object-fit: contain;">
           </div>
-          <div data-role='fieldcontain'>
-            <label>Username</label>
-            <input type='text' maxlength='16' name='user' value='$user'>
-          </div>
-          <div data-role='fieldcontain'>
-            <label>Password</label>
-            <input type='password' maxlength='16' name='pass' value='$pass'>
-          </div>
-          <div data-role='fieldcontain'>
-            <input data-transition='slide' type='submit' value='Login'>
+        </div>
+        <div data-role='fieldcontain'>
+          <input data-transition='slide' type='submit' value='Login'>
           </div>
         </div>
       </form>
