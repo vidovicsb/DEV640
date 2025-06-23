@@ -78,9 +78,10 @@
 
   showProfile($user);
 
-echo <<<_END
+  // Always show the edit form
+  echo <<<_END
       <form data-ajax='false' method='post'
-        action='profile.php?r=$randstr' enctype='multipart/form-data'>
+        action='profile.php' enctype='multipart/form-data'>
       <h3>Enter or edit your details and/or upload an image</h3>
       <textarea name='text'>$text</textarea><br>
       Image: <input type='file' name='image' size='14'>
